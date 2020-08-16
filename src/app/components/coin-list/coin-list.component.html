@@ -1,0 +1,42 @@
+<div id="dec-coin-list" class="row justify-content-center mt-5">
+  <table class="col-10 table">
+    <thead>
+      <tr class="table-header">
+        <th scope="col">Rank</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Marketcap</th>
+        <th scope="col">24H (%)</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="coins.length > 0">
+      <tr *ngFor="let coin of coins; let i = index" class="table-row">
+        <td scope="row">{{ i + 1 }}</td>
+        <td><img class="coin-image" [src]="coin.image" alt="coin-icon" /></td>
+        <th>{{ coin.name }}</th>
+        <td>${{ coin.current_price }}</td>
+        <td>${{ coin.market_cap | number: '1.0-0' }}</td>
+        <td class="coin-perc-change" [style.color]="coin.price_change_percentage_24h < 0 ? 'red' : 'green'">
+          {{ coin.price_change_percentage_24h | number: '1.2-2' }}%
+          <span class="arrow-change" *ngIf="coin.price_change_percentage_24h !== 0">
+            {{ coin.price_change_percentage_24h < 0 ? '🠻' : '🠹' }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ngx-skeleton-loader
+    *ngIf="coins.length === 0"
+    class="col-10"
+    [theme]="{
+      'border-radius': '5px',
+      height: '35px',
+      width: '100%',
+      border: '1px solid white'
+    }"
+    count="16"
+    animation="progress"
+  ></ngx-skeleton-loader>
+</div>

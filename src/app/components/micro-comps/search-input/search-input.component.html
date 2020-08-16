@@ -1,0 +1,34 @@
+<div id="dec-input-search">
+  <div class="input-group">
+    <input
+      id="search-input"
+      type="text"
+      class="form-control"
+      placeholder="Search"
+      aria-label="Search"
+      aria-describedby="basic-addon1"
+      (focus)="showSearchList = true"
+      (blur)="showSearchList = false"
+    />
+    <div class="input-group-append">
+      <span class="input-group-text" id="basic-addon1"
+        ><span class="material-icons">
+          search
+        </span></span
+      >
+    </div>
+  </div>
+
+  <ul *ngIf="searchedCoins.length > 0 && showSearchList" class="search-list mat-elevation-z5">
+    <li *ngFor="let coin of searchedCoins" class="row">
+      <div class="col-2">
+        <img [src]="coin.image" />
+      </div>
+      <div class="col-8 coin-text">
+        <span>{{ coin.name }}</span>
+        <strong> ({{ coin.symbol | uppercase }})</strong>
+      </div>
+      <div class="col-2" *ngIf="coin.market_cap_rank">#{{ coin.market_cap_rank }}</div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,29 @@
+#dec-coin-list {
+  .table-header {
+    th {
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+  .table-row {
+    cursor: pointer;
+    &:hover {
+      background-color: #eee;
+    }
+    td,
+    th {
+      vertical-align: unset;
+    }
+    .coin-image {
+      max-width: 30px;
+    }
+    .coin-perc-change {
+      .arrow-change {
+        vertical-align: middle;
+        font-size: 27px;
+      }
+    }
+  }
+}

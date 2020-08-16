@@ -1,0 +1,12 @@
+#dec-navbar {
+  .logo {
+    cursor: pointer;
+    h2 {
+      margin-top: 0.5rem;
+      font-family: 'Lexend Peta', sans-serif;
+    }
+    h2::first-letter {
+      color: orange;
+    }
+  }
+}

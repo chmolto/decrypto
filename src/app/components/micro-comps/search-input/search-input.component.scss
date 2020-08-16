@@ -1,0 +1,32 @@
+#dec-input-search {
+  .search-list {
+    padding: 0;
+    position: absolute;
+    background: white;
+    z-index: 3;
+    list-style-type: none;
+    max-height: 596px;
+    width: 500px;
+    right: 16px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    li {
+      padding: 10px;
+      border: 1px solid lightgray;
+      cursor: pointer;
+      &:hover {
+        background-color: #eee;
+      }
+      img {
+        margin-right: auto;
+        margin-left: auto;
+        display: block;
+        width: 20px;
+        height: 20px;
+      }
+      .coin-text {
+        border-left: 1px solid #ccc;
+      }
+    }
+  }
+}
